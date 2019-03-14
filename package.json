@@ -1,0 +1,28 @@
+{
+  "name": "@adrianhelvik/with-context",
+  "version": "1.0.0",
+  "main": "lib/cjs.js",
+  "module": "lib/esm.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "hoist-non-react-statics": "^3.3.0"
+  },
+  "scripts": {
+    "build:cjs": "TARGET=cjs babel src/index.js --out-file lib/cjs.js",
+    "build:esm": "TARGET=esm babel src/index.js --out-file lib/esm.js",
+    "build": "mkdir -p lib && yarn build:cjs && yarn build:esm",
+    "test": "jest",
+    "prepublish": "yarn test && yarn build"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.5.0",
+    "jest": "^24.5.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
+}
